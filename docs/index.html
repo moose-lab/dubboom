@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>译鸣惊人 DubBoom — 社区资助，让视频开口说中文</title>
+  <meta name="description" content="在 Monad 测试网上锁定翻译资助，用 AI 把英文视频配成中文版。Monad Blitz 广州参赛项目。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <strong>译鸣惊人</strong>
+        <span>DubBoom · Monad Blitz 广州</span>
+      </div>
+      <div class="wallet">
+        <div class="meta" id="walletMeta">未连接 · Monad Testnet</div>
+        <button class="btn-accent" id="connectBtn" type="button">连接钱包</button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow">Community-funded AI dubbing</p>
+      <h1>让好视频跨语言开口。</h1>
+      <p class="lead">这不是给视频加一条字幕。社区先把资助锁在 Monad 上，再由 AI 生成中文配音版，尽量保留原音色和背景声。付款、交稿凭证和结算状态都可以在链上查到。</p>
+    </section>
+
+    <ol class="steps">
+      <li><b>01 听原片</b><p>先听一段英文产品讲解，确认这是要被翻译的视频。</p></li>
+      <li><b>02 锁定资助</b><p>用测试 MON 把赏金锁进合约，交易可以立刻在浏览器里打开。</p></li>
+      <li><b>03 听中文版并结算</b><p>播放译制结果；验收通过后，合约把资助打给翻译服务方。</p></li>
+    </ol>
+
+    <section class="stage">
+      <div class="player">
+        <div class="screen" id="screen">
+          <video id="filePlayer" playsinline controls hidden></video>
+          <div class="visual" id="visual">
+            <div class="kicker" id="visualKicker">EN · 原片</div>
+            <div class="line" id="visualLine">A good video shouldn’t lose its audience just because of language.</div>
+            <div class="wave" id="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+        </div>
+        <div class="player-bar">
+          <div class="tabs">
+            <button class="btn-ghost" type="button" id="tabEn" aria-pressed="true">英文原片</button>
+            <button class="btn-ghost" type="button" id="tabZh" aria-pressed="false">中文版</button>
+          </div>
+          <button class="btn-primary" type="button" id="playBtn">播放</button>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <h2>资助这次翻译</h2>
+        <p class="hint">目标语言固定为中文。资金会先锁在合约里，翻译完成并验收后才打给服务方。</p>
+        <label for="amount">资助金额（MON）</label>
+        <input id="amount" type="number" min="0.01" step="0.01" value="0.1" />
+        <div class="btn-row">
+          <button class="btn-primary" type="button" id="fundBtn">资助翻译</button>
+          <button class="btn-ghost" type="button" id="completeBtn" hidden>验收并打款</button>
+        </div>
+        <div class="status" id="status">先连接 Monad 测试网钱包，再锁定资助。</div>
+      </aside>
+    </section>
+
+    <section class="facts">
+      <div>
+        <h3>智能合约</h3>
+        <div class="mono" id="contractAddr">0x6343582628A4C4FFfd83A986B1034f3E41944E17</div>
+        <p><a href="https://testnet.monadvision.com/address/0x6343582628A4C4FFfd83A986B1034f3E41944E17" target="_blank" rel="noreferrer">在 MonadVision 查看</a></p>
+      </div>
+      <div>
+        <h3>网络</h3>
+        <p>Monad Testnet · Chain ID 10143<br>RPC：https://testnet-rpc.monad.xyz</p>
+      </div>
+      <div>
+        <h3>演示说明</h3>
+        <p>链上的资助和打款是实时发生的。为了在三分钟内听完效果，中文样片使用已经跑通的英→中结果；页面不会把它说成“刚刚才生成”。</p>
+      </div>
+      <div>
+        <h3>仓库</h3>
+        <p><a href="https://github.com/moose-lab/dubboom" target="_blank" rel="noreferrer">github.com/moose-lab/dubboom</a></p>
+      </div>
+    </section>
+
+    <footer>
+      <div>译鸣惊人 / DubBoom · Monad Blitz 广州 2026.11.21</div>
+      <div>测试网演示，不收真实资金，不代表已经商用。</div>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.5/dist/ethers.umd.min.js"></script>
+  <script src="./abi.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
