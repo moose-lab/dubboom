@@ -1,17 +1,38 @@
 # 译鸣惊人 / DubBoom
 
-社区先把资助锁在 Monad 上，再让 AI 把视频配成另一种语言的可播放成片。
+[Monad Blitz 广州](https://luma.com/blitz-guangzhou-nov-2026)（2026 年 11 月 21 日）当天新建的参赛项目。
 
-这是 [Monad Blitz 广州](https://luma.com/blitz-guangzhou-nov-2026)（2026 年 11 月 21 日）当天新建的参赛仓库。我们把已有的视频翻译能力，做成一个能在测试网实时结清的社区资助流程：资助、交稿、验收打款都可以在链上查到。
+社区先把资助锁在 Monad 上，再让 AI 把视频配成另一种语言的可播放成片。资助、交稿、验收打款都可以在链上公开查到。
 
 > 现有视频翻译产品的仓库代码没有复制进本仓库。翻译生成继续使用已经跑通的后端服务；本仓库只包含智能合约、公开演示前端和说明文档。
 
+## 提交信息
+
+| 项目 | 内容 |
+| --- | --- |
+| 队名 | 译鸣惊人 / DubBoom |
+| 公开仓库 | [https://github.com/moose-lab/dubboom](https://github.com/moose-lab/dubboom) |
+| 公开前端（已上线） | [https://moose-lab.github.io/dubboom/](https://moose-lab.github.io/dubboom/) |
+| 自定义域名（拟定） | [https://dubboom.minghao.si/](https://dubboom.minghao.si/) |
+| 合约 TranslationFund | [`0x6343582628A4C4FFfd83A986B1034f3E41944E17`](https://testnet.monadvision.com/address/0x6343582628A4C4FFfd83A986B1034f3E41944E17) |
+| 网络 | Monad Testnet，Chain ID `10143` |
+| 提交页 | [mojo.devnads.com/events/18](https://mojo.devnads.com/events/18)，当天 18:30（北京时间）截止 |
+
+自定义域名与队名一致，放在 `minghao.si` 下，作为本场比赛演示页地址。当前请先用已上线的 GitHub Pages 链接提交和路演；域名 DNS 生效并完成绑定后，再把提交页里的前端地址换成 `https://dubboom.minghao.si/`。
+
 ## 现场演示
 
-- 仓库：[https://github.com/moose-lab/dubboom](https://github.com/moose-lab/dubboom)
-- 公开前端：https://moose-lab.github.io/dubboom/ （代码在 `docs/`。若页面尚未生效，到 [仓库 Pages 设置](https://github.com/moose-lab/dubboom/settings/pages) 把 Source 选为 GitHub Actions 即可发布。）
+打开公开前端后，按这个顺序走一遍：
 
-打开页面后：连接 Monad 测试网钱包 → 播放英文原片 → 用测试 MON 资助翻译 → 查看链上交易 → 播放中文版。如果连接的是 operator 钱包，还可以点「验收并打款」，把锁定的资助转给翻译服务方。
+1. 连接 Monad 测试网钱包  
+2. 播放英文原片  
+3. 用测试 MON 资助翻译（链上锁定）  
+4. 打开区块浏览器确认交易  
+5. 播放中文配音成片  
+
+如果连接的是 operator 钱包，还可以点「验收并打款」，把锁定的资助转给翻译服务方。
+
+前端代码在 `docs/`，由 GitHub Actions 发布到 GitHub Pages。
 
 ## 已部署合约（Monad Testnet）
 
@@ -26,7 +47,7 @@
 - 区块浏览器：https://testnet.monadvision.com
 - 水龙头：https://faucet.monad.xyz
 
-合约在黑客松当天部署到 Monad 测试网，满足「活动期间上链」的常见提交要求。广州站提交页为 [mojo.devnads.com/events/18](https://mojo.devnads.com/events/18)，截止时间为当天 18:30（北京时间）。
+合约在黑客松当天部署到 Monad 测试网，满足「活动期间上链」的提交要求。
 
 ## 它解决什么问题
 
@@ -88,6 +109,7 @@ forge script script/Deploy.s.sol:DeployTranslationFund --rpc-url https://testnet
 
 - 智能合约：Solidity 0.8.24、Foundry，已部署到 Monad Testnet
 - 公开前端：原生 HTML / CSS / JavaScript，ethers.js v6，托管于 GitHub Pages
+- 自定义域名：`dubboom.minghao.si`（拟定）
 - 翻译后端：复用已有视频翻译服务（主攻英→中配音翻译），不在本仓库内重写
 
 ## 诚实边界
