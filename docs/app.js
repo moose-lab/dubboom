@@ -7,8 +7,8 @@ const CONFIG = {
   videoId: "dubboom-demo-en-zh-2026-11-21",
   language: "zh",
   samples: {
-    en: "./samples/en.mp4",
-    zh: "./samples/zh.mp4",
+    en: "https://media.minghao.si/posts/20261119-grok-bot-raw-en.mp4",
+    zh: "https://media.minghao.si/posts/20261119-grok-bot-translated-zh.mp4",
   },
 };
 
@@ -73,15 +73,29 @@ function explorerTx(hash) {
   return `${CONFIG.explorer}/tx/${hash}`;
 }
 
+function probeOne(lang) {
+  return new Promise((resolve) => {
+    const video = document.createElement("video");
+    video.preload = "metadata";
+    const finish = (ok) => {
+      clearTimeout(timer);
+      video.onloadedmetadata = null;
+      video.onerror = null;
+      video.removeAttribute("src");
+      video.load();
+      resolve(ok);
+    };
+    const timer = setTimeout(() => finish(false), 8000);
+    video.onloadedmetadata = () => finish(true);
+    video.onerror = () => finish(false);
+    video.src = CONFIG.samples[lang];
+  });
+}
+
 async function probeSamples() {
-  for (const lang of ["en", "zh"]) {
-    try {
-      const res = await fetch(CONFIG.samples[lang], { method: "HEAD" });
-      hasFile[lang] = res.ok;
-    } catch {
-      hasFile[lang] = false;
-    }
-  }
+  const [en, zh] = await Promise.all([probeOne("en"), probeOne("zh")]);
+  hasFile.en = en;
+  hasFile.zh = zh;
 }
 
 function stopSpeech() {

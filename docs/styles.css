@@ -142,6 +142,16 @@ button:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
   object-fit: cover;
   display: block;
 }
+.screen video[hidden],
+.screen .visual[hidden] {
+  display: none;
+}
+.player-credit {
+  margin: 10px 4px 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
 .visual {
   display: flex;
   flex-direction: column;
