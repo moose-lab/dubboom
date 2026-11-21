@@ -8,8 +8,8 @@
 
 ## 现场演示
 
-- 公开前端：[https://moose-lab.github.io/dubboom/](https://moose-lab.github.io/dubboom/)
 - 仓库：[https://github.com/moose-lab/dubboom](https://github.com/moose-lab/dubboom)
+- 公开前端：https://moose-lab.github.io/dubboom/ （代码在 `docs/`。若页面尚未生效，到 [仓库 Pages 设置](https://github.com/moose-lab/dubboom/settings/pages) 把 Source 选为 GitHub Actions 即可发布。）
 
 打开页面后：连接 Monad 测试网钱包 → 播放英文原片 → 用测试 MON 资助翻译 → 查看链上交易 → 播放中文版。如果连接的是 operator 钱包，还可以点「验收并打款」，把锁定的资助转给翻译服务方。
 
