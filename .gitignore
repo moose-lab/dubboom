@@ -1,0 +1,10 @@
+out/
+cache/
+broadcast/
+.env
+.env.*
+*.pk
+*.key
+keystore.pass
+node_modules/
+.DS_Store
